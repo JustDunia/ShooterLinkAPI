@@ -1,7 +1,5 @@
 # ShooterLink
 
-![Pistol target](Shared/Assets/pistol-target-image.png)
-
 ### :construction: Application under construction!
 
 ShooterLink is a web application designed to support management and cooperation in sport shooting
@@ -22,9 +20,3 @@ clubs. It is meant to be a hub between athletes, trainers and club administratio
 tracker and planner <br> :clipboard: Events calendar <br> :clipboard: Competition organization <br>
 :clipboard: Notification panel <br> :clipboard: Communication panel <br> :clipboard: Shooting range
 availability <br> :clipboard: Trainings calendar <br>
-
-<br><br>
-
-### Attributions
-
-[Target icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/target)
