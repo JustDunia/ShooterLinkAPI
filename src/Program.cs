@@ -2,8 +2,13 @@ using FastEndpoints;
 using Serilog;
 using ShooterLink;
 
+var seqEndpoint = Environment.GetEnvironmentVariable("SEQ_ENDPOINT") ?? "http://localhost:5341";
+var seqApiKey = Environment.GetEnvironmentVariable("SEQ_API_KEY");
+
 Log.Logger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
     .WriteTo.Console()
+    .WriteTo.Seq(serverUrl: seqEndpoint, apiKey: seqApiKey)
     .CreateLogger();
 
 try
