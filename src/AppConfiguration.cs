@@ -61,4 +61,11 @@ public static class AppConfiguration
 
         return builder;
     }
+
+    public static WebApplicationBuilder ConfigureOutputCache(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddOutputCache();
+
+        return builder;
+    }
 }

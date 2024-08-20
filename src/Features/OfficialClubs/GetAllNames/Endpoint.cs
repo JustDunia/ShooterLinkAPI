@@ -4,7 +4,6 @@ using ShooterLink.Utilities.GlobalSettings;
 
 namespace ShooterLink.Features.OfficialClubs.GetAllNames;
 
-// TODO add cashing
 public class Endpoint : EndpointWithoutRequest<Response>
 {
     /// <summary>
@@ -16,6 +15,8 @@ public class Endpoint : EndpointWithoutRequest<Response>
     {
         Get("official-clubs/all-names");
         AllowAnonymous();
+        Options(x => x.CacheOutput(x => x
+        .Expire(TimeSpan.FromDays(1))));
     }
 
     public override async Task HandleAsync(CancellationToken cancellationToken)

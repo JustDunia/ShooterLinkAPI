@@ -19,13 +19,15 @@ try
 
     builder.Host.UseSerilog();
 
-    builder.ConfigureDatabase();
-    builder.ConfigureOptions();
-    builder.ConfigureEndpoints();
-    builder.ConfigureServices();
+    builder.ConfigureDatabase()
+        .ConfigureOptions()
+        .ConfigureEndpoints()
+        .ConfigureServices()
+        .ConfigureOutputCache();
 
     var app = builder.Build();
 
+    app.UseOutputCache();
     app.UseFastEndpoints();
 
     if (app.Environment.IsDevelopment())
