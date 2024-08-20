@@ -2,14 +2,7 @@ using FastEndpoints;
 using Serilog;
 using ShooterLink;
 
-var seqEndpoint = Environment.GetEnvironmentVariable("SEQ_ENDPOINT") ?? "http://localhost:5341";
-var seqApiKey = Environment.GetEnvironmentVariable("SEQ_API_KEY");
-
-Log.Logger = new LoggerConfiguration()
-    .Enrich.FromLogContext()
-    .WriteTo.Console()
-    .WriteTo.Seq(serverUrl: seqEndpoint, apiKey: seqApiKey)
-    .CreateLogger();
+Logger.Create();
 
 try
 {
@@ -27,8 +20,9 @@ try
 
     var app = builder.Build();
 
-    app.UseOutputCache();
-    app.UseFastEndpoints();
+    app.UseDefaultExceptionHandler(useGenericReason: true, logStructuredException: true)
+        .UseOutputCache()
+        .UseFastEndpoints();
 
     if (app.Environment.IsDevelopment())
     {
